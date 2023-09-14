@@ -1,0 +1,22 @@
+# @name get-prompts
+GET http://localhost:3333/prompts
+###
+# @name upload
+POST http://localhost:3333/video
+Content-Type: multipart/form-data; boundary=----Sep
+
+------Sep
+Content-Disposition: form-data; name="video"; filename="example.mp3"
+Content-Type: audio/mpeg
+
+< ./example.mp3
+------Sep--
+###
+# @name create-transcription
+POST http://localhost:3333/video/0fc21b7d-3eae-4bbe-b53b-8e175b13841a/transcription
+Content-Type: application/json
+
+{
+  "prompt": "comunismo, ganhamos"
+}
+###
